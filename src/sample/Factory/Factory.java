@@ -16,25 +16,25 @@ public abstract class Factory extends ChainLink {
 		frame = new FactoryFrame(this); // create GUI
 		frame.setVisible(true);
 	}
-	
+
 	@Override
 	public void handleMessage(String s) {
 		Product product = Product.valueOf(s);
-		
+
 		if (checkProduct(product)) {
 			backlog.incrementNumOfProducts();
 		}
 	}
 
 	public abstract boolean checkProduct(Product product); // subclass checks the product TODO always true
-	
+
 	public abstract void acceptProduct(Product product);  // subclass accepts product
 
 	@Override
 	public String getStatus() {
 		return "Open";
 	}
-	
+
 	@Override
 	public ChainLinkFrame getFrame() {
 		return frame;

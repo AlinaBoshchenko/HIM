@@ -7,7 +7,7 @@ import sample.Implementation.HasStatus;
 public class StatusUpdater implements Runnable {
 	HasStatus target;  // a Class that can have a status which can be displayed in a ChainLinkFrame
 	ChainLink chainlink;
-	
+
 	public StatusUpdater(HasStatus target, ChainLink chainlink) {
 		this.target = target;
 		this.chainlink = chainlink;

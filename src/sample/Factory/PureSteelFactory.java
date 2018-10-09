@@ -8,13 +8,14 @@ import java.util.logging.Logger;
 
 public class PureSteelFactory extends Factory {
 
-	private static Logger logger = Logger.getLogger(Mine.class.getName());
+	private static Logger logger = Logger.getLogger(PureSteelFactory.class.getName());
 
 	public PureSteelFactory(InetSocketAddress address, InetSocketAddress[] nextLinks, InetSocketAddress[] previousLinks, int numberOfLines) {
 		super(address, nextLinks, previousLinks);
 		// create production lines
 		createLines(numberOfLines);
 	}
+
 
 	private void createLines(int numberOfLines) {
 		for(int i = 0; i < numberOfLines; i++) {
@@ -32,6 +33,7 @@ public class PureSteelFactory extends Factory {
 			return true;
 		}
 	}
+
 
 	public  void  acceptProduct(Product product) {
 		if (product == Product.PurifiedSteel){

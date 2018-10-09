@@ -1,6 +1,6 @@
 package sample.Factory;
 
-public enum ProductionLineStatus { //TODO again enum
+public enum ProductionLineStatus {
 	initialised,
 	producing,
 	nonactive

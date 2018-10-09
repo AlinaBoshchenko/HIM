@@ -20,11 +20,14 @@ public class Store extends ChainLink implements HasStatus {
 	private StoreFrame frame;
 	private ShopStatus status = ShopStatus.initialised;
 
+    private double PRICE1 = 75.00;
+	private double PRICE2 = 100.00;
+
 	public Store(InetSocketAddress address, InetSocketAddress[] previousLinks) {
 		super(address, new InetSocketAddress[0], previousLinks);
 
-		prices.put(Product.SteelPlate, 75.00);
-		prices.put(Product.SteelCable, 100.00);
+		prices.put(Product.SteelPlate, PRICE1);
+		prices.put(Product.SteelCable, PRICE2);
 
 		frame = new StoreFrame(this);
 		frame.setVisible(true);
@@ -62,13 +65,13 @@ public class Store extends ChainLink implements HasStatus {
 
 	public void setStatus(String status) {
 		this.status = ShopStatus.valueOf(status);
-		// invoke GUI updater on EDT 
+		// invoke GUI updater on EDT
 		SwingUtilities.invokeLater(new StatusUpdater(this));
 	}
 
 	@Override
 	public String getStatus() {
-		Locale locale = new Locale("en", "US");      
+		Locale locale = new Locale("en", "US");
 		NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance(locale);
 		return "Shop is " + status.toString() + ", " + currencyFormatter.format(bank) + " in the bank";
 	}

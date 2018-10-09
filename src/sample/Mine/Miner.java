@@ -20,13 +20,13 @@ public class Miner extends ChainLinkProcess implements Runnable {
 
 	public void run() {
 		while (true) {
-			setStatus("mining");
+			setStatus(MinerStatus.mining);
 
 			sleep(1000);
 
 			((Mine)link).processOre(Product.Ore);     // give ore to Mine
 
-			setStatus("finished");
+			setStatus(MinerStatus.finished);
 		}
 	}
 
@@ -40,9 +40,13 @@ public class Miner extends ChainLinkProcess implements Runnable {
 
 	@Override
 	public void setStatus(String status) {
-		this.status = MinerStatus.valueOf(status);
-		// invoke GUI updater on EDT 
+		// invoke GUI updater on EDT
 		SwingUtilities.invokeLater(new StatusUpdater(this, this.getChainlink()));
+	}
+
+	private void setStatus(MinerStatus status) {
+		setStatus(status.name());
+		this.status = status;
 	}
 
 	@Override

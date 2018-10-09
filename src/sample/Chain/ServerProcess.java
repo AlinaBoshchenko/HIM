@@ -10,7 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class ServerProcess implements Runnable {
-    private static Logger log = Logger.getLogger(Miner.class.getName());
+    private static Logger log = Logger.getLogger(ServerProcess.class.getName());
     private Socket inputSocket;
     private ChainLink link;
 

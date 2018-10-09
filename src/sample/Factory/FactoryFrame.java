@@ -19,9 +19,9 @@ public class FactoryFrame extends ChainLinkFrame {
 	public void setStatus(HasStatus proces, String status) {		// status info in GUI
 		if (!labels.containsKey(proces)) {
 			JLabel name = new JLabel("ProductionLine " + labels.size() + ":");
-			super.panel.add(name);
-			JLabel statusLabel = new JLabel(proces.getStatus().toString());
-			super.panel.add(statusLabel);
+			super.addToPanel(name);
+			JLabel statusLabel = new JLabel(proces.getStatus());
+			super.addToPanel(statusLabel);
 			labels.put(proces, statusLabel);
 		}
 

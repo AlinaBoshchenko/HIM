@@ -1,7 +1,5 @@
 package sample.Mine;
-
 import sample.Chain.ChainLinkFrame;
-
 import java.util.ArrayList;
 import javax.swing.JLabel;
 
@@ -20,10 +18,10 @@ public class MineFrame extends ChainLinkFrame {
 		for(int i = 0; i < miners.size(); i++) {
 			Miner m = miners.get(i);
 			JLabel minerName = new JLabel("Miner " + i + ":");
-			super.panel.add(minerName);
-			JLabel statusLabel = new JLabel(m.getStatus().toString());
-			super.panel.add(statusLabel);
-			labels.put(m, statusLabel);	
+			super.addToPanel(minerName);
+			JLabel statusLabel = new JLabel(m.getStatus());
+			super.addToPanel(statusLabel);
+			labels.put(m, statusLabel);
 		}
 	}
 }

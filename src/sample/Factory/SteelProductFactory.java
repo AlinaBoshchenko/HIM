@@ -7,7 +7,7 @@ import java.util.logging.Logger;
 
 public class SteelProductFactory extends Factory {
 
-	private static Logger logger = Logger.getLogger(Mine.class.getName());
+	private static Logger logger = Logger.getLogger(SteelProductFactory.class.getName());
 
 	public SteelProductFactory(InetSocketAddress address, InetSocketAddress[] nextLinks, InetSocketAddress[] previousLinks, int numberOfCableLines, int numberOfPlateLines) {
 		super(address, nextLinks, previousLinks);

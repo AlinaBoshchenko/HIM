@@ -11,9 +11,9 @@ import java.util.logging.Logger;
 public abstract class ProductionLine extends ChainLinkProcess implements Runnable {
 
 	private Factory factory;
-	protected ProductionLineStatus status;
+	private ProductionLineStatus status;
 	private Backlog backlog;
-	private static Logger log = Logger.getLogger(Miner.class.getName());
+	private static Logger log = Logger.getLogger(ProductionLine.class.getName());
 
 	public ProductionLine(Factory factory, Backlog backlog) {  // production line knows the factory and its backlog
 		super(factory);
@@ -27,7 +27,8 @@ public abstract class ProductionLine extends ChainLinkProcess implements Runnabl
 			// don't do anything when there's no product on the production line
 			if (backlog.getNumOfProducts() > 0) {
 				setStatus(ProductionLineStatus.producing.toString());
-
+                // TODO: 08.10.2018 it's a hack. What if for creating product (which u get by convert()) you'll need more then 1 product.
+				// Moreover, what if for creating different types of products are needed.
 				sleep(1000);
 
 				// do the actual conversion

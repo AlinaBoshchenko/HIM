@@ -11,10 +11,10 @@ import java.util.logging.Logger;
 public class Mine extends ChainLink {
 
     // the frame that displays the status of the mine and the miners
-    MineFrame frame;
+    private MineFrame frame;
     //collection of miners belonging to the mine
     private ArrayList<Miner> miners = new ArrayList<>();
-    private Logger logger = Logger.getLogger(Mine.class.getName());
+    private static Logger logger = Logger.getLogger(Mine.class.getName());
 
     public Mine(InetSocketAddress address, InetSocketAddress[] nextLinks, int numberOfMiners) {
         super(address, nextLinks, new InetSocketAddress[0]);

@@ -9,8 +9,8 @@ import java.net.InetSocketAddress;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Starting {
-    public static void startLinks(Map<String, InetSocketAddress> links1, Map<String, InetSocketAddress> links2) {
+class Starting {
+    static void startLinks(Map<String, InetSocketAddress> links1, Map<String, InetSocketAddress> links2) {
 
         // production chain 1
         links1.put("Mine", new InetSocketAddress("localhost", 1500));
@@ -30,7 +30,7 @@ public class Starting {
         links2.put("Store 2", new InetSocketAddress("localhost", 2710));
     }
 
-    public static void startAction(Map<String, InetSocketAddress> links1, Map<String, InetSocketAddress> links2) {
+    static void startAction(Map<String, InetSocketAddress> links1, Map<String, InetSocketAddress> links2) {
 
         startStoreLine1(links1);
         startMine1(links1, "Mine", "PurifiedSteelFactory");
@@ -50,7 +50,7 @@ public class Starting {
     }
 
     private static void startSteelProductFactory2Line2(Map<String, InetSocketAddress> links2) {
-        SteelProductFactory proFactory2 = new SteelProductFactory(
+        new SteelProductFactory(
                 links2.get("SteelProductFactory 2"),
                 new InetSocketAddress[]{links2.get("Store 1"), links2.get("Store 2")},
                 new InetSocketAddress[]{links2.get("PurifiedSteelFactory 1"), links2.get("PurifiedSteelFactory 2")},
@@ -59,7 +59,7 @@ public class Starting {
     }
 
     private static void startPureSteelFactory2Line2(Map<String, InetSocketAddress> links2) {
-        PureSteelFactory purFactory2 = new PureSteelFactory(
+        new PureSteelFactory(
                 links2.get("PurifiedSteelFactory 2"),
                 new InetSocketAddress[]{links2.get("SteelProductFactory 2"), links2.get("SteelProductFactory 3")},
                 new InetSocketAddress[]{links2.get("Mine 2")},
@@ -68,7 +68,7 @@ public class Starting {
     }
 
     private static void startPureSteelFactoryLine2(Map<String, InetSocketAddress> links2) {
-        PureSteelFactory purFactory1 = new PureSteelFactory(
+        new PureSteelFactory(
                 links2.get("PurifiedSteelFactory 1"),
                 new InetSocketAddress[]{links2.get("SteelProductFactory 1"), links2.get("SteelProductFactory 2")},
                 new InetSocketAddress[]{links2.get("Mine 1"), links2.get("Mine 2")},
@@ -77,7 +77,7 @@ public class Starting {
     }
 
     private static void startMine2Line2(Map<String, InetSocketAddress> links2) {
-        Mine mine2 = new Mine(
+        new Mine(
                 links2.get("Mine 2"),
                 new InetSocketAddress[]{links2.get("PurifiedSteelFactory 1"), links2.get("PurifiedSteelFactory 2")},
                 3 // number of miners
@@ -85,14 +85,14 @@ public class Starting {
     }
 
     private static void startStoreLine2(Map<String, InetSocketAddress> links2, String s, String s2, String s3) {
-        Store store1 = new Store(
+        new Store(
                 links2.get(s),
                 new InetSocketAddress[]{links2.get(s2), links2.get(s3)}
         );
     }
 
     private static void startSteelProductFactory(Map<String, InetSocketAddress> links1, String steelProductFactory, String store, String purifiedSteelFactory, int i, int i2) {
-        SteelProductFactory proFactory = new SteelProductFactory(
+         new SteelProductFactory(
                 links1.get(steelProductFactory),
                 new InetSocketAddress[]{links1.get(store)},
                 new InetSocketAddress[]{links1.get(purifiedSteelFactory)},
@@ -101,7 +101,7 @@ public class Starting {
     }
 
     private static void startPureSteelFactory(Map<String, InetSocketAddress> links1) {
-        PureSteelFactory purFactory = new PureSteelFactory(
+         new PureSteelFactory(
                 links1.get("PurifiedSteelFactory"),
                 new InetSocketAddress[]{links1.get("SteelProductFactory")},
                 new InetSocketAddress[]{links1.get("Mine")},
@@ -110,7 +110,7 @@ public class Starting {
     }
 
     private static void startMine1(Map<String, InetSocketAddress> links1, String mine3, String purifiedSteelFactory) {
-        Mine mine = new Mine(
+        new Mine(
                 links1.get(mine3),
                 new InetSocketAddress[]{links1.get(purifiedSteelFactory)},
                 2                                            // number of miners
@@ -118,7 +118,7 @@ public class Starting {
     }
 
     private static void startStoreLine1(Map<String, InetSocketAddress> links1) {
-        Store store = new Store(
+        new Store(
                 links1.get("Store"),
                 new InetSocketAddress[]{links1.get("SteelProductFactory")}
         );

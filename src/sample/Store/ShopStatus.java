@@ -1,6 +1,6 @@
 package sample.Store;
 
-public enum ShopStatus { //Todo enum
+public enum ShopStatus {
 	initialised,
 	selling,
 	finished

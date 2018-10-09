@@ -12,11 +12,11 @@ public class StoreFrame extends ChainLinkFrame {
 		super(store);
 		this.store = store;
 	}
-	
+
 	@Override
 	protected void addLabels() {
-		JLabel statusLabel = new JLabel(store.getStatus().toString());
-		super.panel.add(statusLabel);
+		JLabel statusLabel = new JLabel(store.getStatus());
+		super.addToPanel(statusLabel);
 		labels.put(store, statusLabel);
 	}
 }

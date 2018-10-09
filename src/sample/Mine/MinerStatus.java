@@ -7,6 +7,6 @@ public enum MinerStatus {
 	 * mining - mining product
 	 */
 	finished,
-	initialised,  // TODO very strange enum. should be removed?
+	initialised,
 	mining
 }

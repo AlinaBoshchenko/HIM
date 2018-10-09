@@ -10,15 +10,16 @@ import java.util.HashMap;
 import java.util.Map;
 /**
  * REFACTORING
- * for refactoring we did the following(main points):
+ * for refactoring I did the following(main points):
  * added loggers instead of printing errors on the screen
  * extracted methods
  * renamed variables
  * deleted some unused code
  * united classes into packages
- * created tests
+ * created test
  * added necessary comments
  * added an extra class in order to remove all the methods from main
+ * improved inheritance
  */
 public class Main {
 	public static void main(String[] args) {

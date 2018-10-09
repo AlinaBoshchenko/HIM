@@ -1,6 +1,6 @@
 package sample.Factory;
 
-public enum Product { // TODO very strange enum. should be redone
+public enum Product {
 	/**
 	 * types of products
 	 */
